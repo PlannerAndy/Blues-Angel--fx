@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blues Angel FX</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #f8f9fa;
+    }
+    .hero {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .bot-card {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease-in-out;
+      border-radius: 8px;
+    }
+    .bot-card:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Blues Angel FX</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/bots">Browse Bots</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4">Automate Your Forex Success</h1>
+      <p class="lead">Premium trading bots designed to elevate your strategy and maximize profits.</p>
+      <a href="/bots" class="btn btn-light btn-lg mt-3">Shop Now</a>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <div class="row">
+      {% for id, bot in bots.items() %}
+      <div class="col-md-4 mb-4">
+        <div class="card bot-card p-3 h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ bot.name }}</h5>
+            <p class="card-text">Reliable bot strategy tailored for smart traders.</p>
+            <p><strong>Price:</strong> ${{ bot.price }}</p>
+            <a href="/buy/{{ id }}" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+      &copy; 2025 Blues Angel FX. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
